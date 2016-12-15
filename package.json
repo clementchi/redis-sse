@@ -1,0 +1,17 @@
+{
+  "name": "sse-redis",
+  "version": "1.0.0",
+  "description": "sse redis",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-request-id": "^1.1.0",
+    "redis": "^2.5.3",
+    "sse": "0.0.6"
+  }
+}

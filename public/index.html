@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script>
+    if (!!window.EventSource) {
+          var source = new EventSource('/stream')
+
+          source.addEventListener('message', function(e) {
+            votes = JSON.parse(e.data)
+            console.log("Yes: " + votes.yes + ", No: " + votes.no)
+          }, false)
+
+          source.addEventListener('open', function(e) {
+            console.log("Connected")
+          }, false)
+
+          source.addEventListener('error', function(e) {
+            if (e.target.readyState == EventSource.CLOSED) {
+              console.log("Disconnected")
+            }
+            else if (e.target.readyState == EventSource.CONNECTING) {
+              console.log("Connecting...")
+            }
+          }, false)
+        } else {
+          console.log("Your browser doesn't support SSE")
+        }
+    </script>
+  </head>
+  <body>
+    Hello!!
+  </body>
+</html>
